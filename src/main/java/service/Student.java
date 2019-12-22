@@ -9,11 +9,11 @@ import javax.persistence.GeneratedValue;
 public class Student {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     private String name;
     private String passportNumber;
 
-    public Student(Long id, String name, String passportNumber) {
+    public Student(int id, String name, String passportNumber) {
         this.id = id;
         this.name = name;
         this.passportNumber = passportNumber;
@@ -22,11 +22,11 @@ public class Student {
     public Student() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
