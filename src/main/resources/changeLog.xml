@@ -22,4 +22,21 @@
                           startWith="1"
                           tableName="Student"/>
     </changeSet>
+
+    <changeSet author="Pawel Toporowicz" id="2">
+        <insert dbms="h2, oracle"
+                tableName="Student">
+            <column name="name" type="varchar(255)" value="nazwa"/>
+            <column name="passportNumber" type="varchar(255)" value="paszport"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Pawel Toporowicz" id="3">
+        <insert dbms="h2, oracle"
+                tableName="Student">
+            <column name="id" type="int" value="121"/>
+            <column name="name" type="varchar(255)" value="nazwa z nadpisaniem generowania autosekwencji"/>
+            <column name="passportNumber" type="varchar(255)" value="paszport z nadpisaniem generowania autosekwencji"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

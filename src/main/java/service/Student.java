@@ -1,14 +1,14 @@
 package service;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Student {
-    @Id
+
     @GeneratedValue
+    @Id
     private int id;
     private String name;
     private String passportNumber;
