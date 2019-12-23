@@ -11,7 +11,7 @@
         <createTable tableName="Student">
             <column name="id" type="int"/>
             <column name="name" type="varchar(255)"/>
-            <column name="passportNumber" type="varchar(255)"/>
+            <column name="passport_Number" type="varchar(255)"/>
         </createTable>
         <addAutoIncrement columnDataType="int"
                           columnName="id"
@@ -27,7 +27,7 @@
         <insert dbms="h2, oracle"
                 tableName="Student">
             <column name="name" type="varchar(255)" value="nazwa"/>
-            <column name="passportNumber" type="varchar(255)" value="paszport"/>
+            <column name="passport_Number" type="varchar(255)" value="paszport"/>
         </insert>
     </changeSet>
 
@@ -36,7 +36,14 @@
                 tableName="Student">
             <column name="id" type="int" value="121"/>
             <column name="name" type="varchar(255)" value="nazwa z nadpisaniem generowania autosekwencji"/>
-            <column name="passportNumber" type="varchar(255)" value="paszport z nadpisaniem generowania autosekwencji"/>
+            <column name="passport_Number" type="varchar(255)" value="paszport z nadpisaniem generowania autosekwencji"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Pawel Toporowicz" id="4">
+        <insert dbms="h2, oracle"
+                tableName="Student">
+            <column name="name" type="varchar(255)" value="nazwa z generowanym id"/>
+            <column name="passport_Number" type="varchar(255)" value="paszport z generowanym id"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
