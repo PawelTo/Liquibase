@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  description: This is my controller to learn swagger.
+  version: 1.0.1
+  title: Pawel Toporowicz Test API
+host: localhost
+paths:
+  /regardsGet:
+    get:
+      summary: Get regards for user.
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: Produces from Get
+          schema:
+            $ref: '#/definitions/ObjectForRegards'
+      responses:
+        '201':
+          description: OK from Get regards
+  /regardsPost:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: Consumes from Post.
+          schema:
+            $ref: '#/definitions/ObjectForRegards'
+      responses:
+        '200':
+          description: Ok from Post regards
+  /regardsPostWithResponse:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: Consumes from Post.
+          schema:
+            $ref: '#/definitions/ObjectForRegards'
+      responses:
+        '200':
+          description: Ok from Post regards
+          schema:
+            $ref: '#/definitions/ObjectForRegards'
+  /regardsGetWithResponse:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: Consumes from Post.
+          schema:
+            $ref: '#/definitions/ObjectForRegards'
+      responses:
+        '200':
+          description: Ok from Post regards
+          schema:
+            $ref: '#/definitions/ObjectForRegards'
+definitions:
+  ObjectForRegards:
+    items:
+      type: object
+    required:
+      - userName
+    properties:
+      userName:
+        type: string
+        example: nazwa
+      firstName:
+        type: string
+        example: imie
+      lastName:
+        type: string
+        example: nazwisko
