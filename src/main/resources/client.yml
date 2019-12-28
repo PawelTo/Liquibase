@@ -5,7 +5,7 @@ info:
   title: Pawel Toporowicz Test API
 host: localhost
 paths:
-  /regardsGet:
+  /getStudentSwagSwagger:
     get:
       summary: Get regards for user.
       produces:
@@ -13,13 +13,13 @@ paths:
       parameters:
         - in: body
           name: user
-          description: Produces from Get
+          description: StudentSwag from Get
           schema:
-            $ref: '#/definitions/ObjectForRegards'
+            $ref: '#/definitions/StudentSwag'
       responses:
         '201':
           description: OK from Get regards
-  /regardsPost:
+  /postStudentSwagSwagger:
     post:
       consumes:
         - application/json
@@ -28,11 +28,11 @@ paths:
           name: user
           description: Consumes from Post.
           schema:
-            $ref: '#/definitions/ObjectForRegards'
+            $ref: '#/definitions/StudentSwag'
       responses:
         '200':
           description: Ok from Post regards
-  /regardsPostWithResponse:
+  /postStudentSwagSwaggerWithResponse:
     post:
       consumes:
         - application/json
@@ -41,13 +41,13 @@ paths:
           name: user
           description: Consumes from Post.
           schema:
-            $ref: '#/definitions/ObjectForRegards'
+            $ref: '#/definitions/StudentSwag'
       responses:
         '200':
           description: Ok from Post regards
           schema:
-            $ref: '#/definitions/ObjectForRegards'
-  /regardsGetWithResponse:
+            $ref: '#/definitions/StudentSwag'
+  /getStudentSwagSwaggerWithResponse:
     get:
       consumes:
         - application/json
@@ -56,25 +56,47 @@ paths:
           name: user
           description: Consumes from Post.
           schema:
-            $ref: '#/definitions/ObjectForRegards'
+            $ref: '#/definitions/StudentSwag'
       responses:
         '200':
           description: Ok from Post regards
           schema:
-            $ref: '#/definitions/ObjectForRegards'
+            $ref: '#/definitions/StudentSwag'
+  /getListStudentSwagSwaggerWithResponse:
+    get:
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: Ok from get list of Object
+          schema:
+            $ref: '#/definitions/StudentSwagList'
 definitions:
-  ObjectForRegards:
+  StudentSwag:
     items:
       type: object
     required:
-      - userName
+      - name
     properties:
-      userName:
+      id:
+        type: integer
+        example: 4
+      name:
         type: string
         example: nazwa
-      firstName:
+      passportName:
         type: string
-        example: imie
-      lastName:
+        example: paszport
+  StudentSwagList:
+    items:
+      type: array
+    properties:
+      id:
+        type: integer
+        example: 12
+      name:
         type: string
-        example: nazwisko
+        example: nazwaFromList
+      passportName:
+        type: string
+        example: paszportFromList
