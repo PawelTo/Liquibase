@@ -48,7 +48,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+   <!-- <build>
     <plugins>
     <plugin>
         <groupId>io.swagger</groupId>
@@ -73,5 +73,5 @@
         </executions>
     </plugin>
     </plugins>
-    </build>
+    </build>-->
 </project>
