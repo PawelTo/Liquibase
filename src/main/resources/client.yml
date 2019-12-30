@@ -71,6 +71,24 @@ paths:
           description: Ok from get list of Object
           schema:
             $ref: '#/definitions/StudentSwagList'
+  /getListStudentGeneratedResponse:
+    get:
+      responses:
+        '200':
+          description: generated from yaml controller
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StudentSwag'
+  /getSetStudentGeneratedResponse:
+    get:
+      responses:
+        '200':
+          description: generated from yaml controller
+          schema:
+            type: array
+            items:
+              type: object
 definitions:
   StudentSwag:
     items:
