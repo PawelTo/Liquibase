@@ -13,7 +13,8 @@ import java.util.Optional;
 
 @Controller
 public class StudentSwagControllerImp implements GetListStudentSwagSwaggerWithResponseApi, GetStudentSwagSwaggerApi,
-        GetStudentSwagSwaggerWithResponseApi, PostStudentSwagSwaggerApi, PostStudentSwagSwaggerWithResponseApi {
+        GetStudentSwagSwaggerWithResponseApi, PostStudentSwagSwaggerApi, PostStudentSwagSwaggerWithResponseApi,
+        GetListStudentGeneratedResponseApi, GetSetStudentGeneratedResponseApi{
 
     @Override
     public Optional<ObjectMapper> getObjectMapper() {

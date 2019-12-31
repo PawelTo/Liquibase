@@ -31,7 +31,7 @@ import java.util.Optional;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-30T02:31:34.304+01:00")
 
 @Api(value = "getListStudentGeneratedResponse", description = "the getListStudentGeneratedResponse API")
-public interface GetListStudentGeneratedResponseApi {
+public interface    GetListStudentGeneratedResponseApi {
 
     Logger log = LoggerFactory.getLogger(GetListStudentGeneratedResponseApi.class);
 
