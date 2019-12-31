@@ -11,12 +11,12 @@ public class Student {
     @Id
     private int id;
     private String name;
-    private String passportNumber;
+    private String passportSerialNumber;
 
-    public Student(int id, String name, String passportNumber) {
+    public Student(int id, String name, String passportSerialNumber) {
         this.id = id;
         this.name = name;
-        this.passportNumber = passportNumber;
+        this.passportSerialNumber = passportSerialNumber;
     }
 
     public Student() {
@@ -38,11 +38,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getPassportNumber() {
-        return passportNumber;
+    public String getPassportSerialNumber() {
+        return passportSerialNumber;
     }
 
-    public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
+    public void setPassportSerialNumber(String passportSerialNumber) {
+        this.passportSerialNumber = passportSerialNumber;
     }
 }

@@ -46,4 +46,10 @@
             <column name="passport_Number" type="varchar(255)" value="paszport z generowanym id"/>
         </insert>
     </changeSet>
+    <changeSet author="Pawel Toporowicz" id="5">
+        <renameColumn columnDataType="varchar(255)"
+                      newColumnName="passport_Serial_Number"
+                      oldColumnName="passport_Number"
+                      tableName="Student"/>
+    </changeSet>
 </databaseChangeLog>

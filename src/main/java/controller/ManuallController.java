@@ -11,6 +11,7 @@ import service.StudentDAO;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @RestController
 public class ManuallController {
@@ -22,8 +23,13 @@ public class ManuallController {
     public Student getStudentAdd(){
         Student student = new Student();
         student.setName("z obiektu");
-        student.setPassportNumber(String.valueOf(studentDAO.addStudent()));
+        student.setPassportSerialNumber(String.valueOf(studentDAO.addStudent()));
         return student;
+    }
+
+    @GetMapping("/getAllStudentDAO")
+    public List<Student> getAllStudentDAO(){
+        return studentDAO.getAllStudents();
     }
 
     @GetMapping("/getStudentEntity")
