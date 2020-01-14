@@ -7,6 +7,7 @@ import service.Student;
 import service.StudentDAO;
 import service.StudentService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,8 +31,10 @@ public class MainController {
 
     @GetMapping("/insert")
     public void insertStudents(){
+        ArrayList returnedList = new ArrayList();
         for (int i=0 ;i<20;i++){
-            studentDAO.addStudent("studentName"+i,"passport"+i*2);
+            returnedList.add(studentDAO.addStudent("studentName"+i,"passport"+i*2));
         }
+        return;
     }
 }
