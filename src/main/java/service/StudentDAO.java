@@ -12,8 +12,8 @@ public class StudentDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public int addStudent(){
-        return jdbcTemplate.update("Insert into Student (name, passport_Serial_Number) values (?,?)","imie","paszport");
+    public int addStudent(String name, String passportNumber){
+        return jdbcTemplate.update("Insert into Student (name, passport_Serial_Number) values (?,?)",name,passportNumber);
     }
 
     public List<Student> getAllStudents(){

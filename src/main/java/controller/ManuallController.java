@@ -23,7 +23,7 @@ public class ManuallController {
     public Student getStudentAdd(){
         Student student = new Student();
         student.setName("z obiektu");
-        student.setPassportSerialNumber(String.valueOf(studentDAO.addStudent()));
+        student.setPassportSerialNumber(String.valueOf(studentDAO.addStudent("imie z obiektu","paszport z obiektu")));
         return student;
     }
 
