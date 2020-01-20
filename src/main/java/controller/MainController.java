@@ -26,15 +26,44 @@ public class MainController {
 
     @GetMapping("/getStudents")
     public List<Student> getAllStudents(){
-        return studentService.getAllStudent();
+        long start = System.currentTimeMillis();
+        List<Student> allStudentWithoutCache = studentService.getAllStudentWithoutCache();
+        System.out.println("get from DB time:" + (System.currentTimeMillis()-start));
+        System.out.println("List count: "+allStudentWithoutCache.size());
+        return allStudentWithoutCache;
+    }
+
+    @GetMapping("/getCachedStudents")
+    public List<Student> getAllStudentsCache(){
+        long start = System.currentTimeMillis();
+        List<Student> allStudentWithCache = studentService.getAllStudentWithCache();
+        System.out.println("get from cache time:" + (System.currentTimeMillis()-start));
+        System.out.println("List count: "+allStudentWithCache.size());
+        return allStudentWithCache;
     }
 
     @GetMapping("/insert")
-    public void insertStudents(){
+    public ArrayList insertStudents(){
         ArrayList returnedList = new ArrayList();
-        for (int i=0 ;i<20;i++){
+        for (int i=0 ;i<2000;i++){
             returnedList.add(studentDAO.addStudent("studentName"+i,"passport"+i*2));
         }
-        return;
+        return returnedList;
+    }
+
+    @GetMapping("/countCache")
+    public long countWithCache(){
+        long start = System.currentTimeMillis();
+        long studenNumber = studentService.countWithCache();
+        System.out.println("get from cache time:" + (System.currentTimeMillis()-start)+" number: "+studenNumber);
+        return studenNumber;
+    }
+
+    @GetMapping("/countWithoutCache")
+    public long countWithoutCache(){
+        long start = System.currentTimeMillis();
+        long studenNumber = studentService.countWithoutCache();
+        System.out.println("get from DB time:" + (System.currentTimeMillis()-start)+" number: "+studenNumber);
+        return studenNumber;
     }
 }
