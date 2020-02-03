@@ -66,4 +66,21 @@ public class MainController {
         System.out.println("get from DB time:" + (System.currentTimeMillis()-start)+" number: "+studenNumber);
         return studenNumber;
     }
+
+    @GetMapping("/clearCache")
+    public void clearCache(){
+        studentService.evictCacheValue("1");
+        System.out.println("cache cleared");
+    }
+
+    @GetMapping("/freshCache")
+    public long freshCachePut(){
+        return studentService.refreshCountPut();
+    }
+
+    @GetMapping("/cacheValue")
+    public void printCacheNumbers(){
+        System.out.println("Wartość count: "+studentService.getCountValue());
+        System.out.println("wartość fresh: "+studentService.getFreshValue());
+    }
 }
