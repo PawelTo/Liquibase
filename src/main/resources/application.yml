@@ -1,3 +1,4 @@
+##there is also other possible method to store all configuration in single file, or divied it to seperate files
 spring:
   liquibase:
     change-log: classpath:changeLog.xml
