@@ -8,6 +8,18 @@ spring:
 
   profiles:
     active: prod
+
+info:
+  app:
+    name: My first application Paweł Toporowicz
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans, caches, env
+
+
 controllerReturned: wartoscZPliku_yaml czesc prod
 
 ---
