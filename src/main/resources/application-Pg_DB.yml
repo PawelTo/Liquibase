@@ -1,0 +1,6 @@
+controllerReturnedProfile: wartoscZPliku dev-yaml
+controllerReturned: CR_nadpisany_DEV
+
+spring:
+  datasource:
+    url: jdbc:h2:file:D:/Workspaces/LiquiBase_h2File/h3
