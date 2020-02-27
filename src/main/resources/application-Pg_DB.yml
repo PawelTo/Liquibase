@@ -3,4 +3,15 @@ controllerReturned: CR_nadpisany_DEV
 
 spring:
   datasource:
-    url: jdbc:h2:file:D:/Workspaces/LiquiBase_h2File/h3
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+
+  jpa:
+    hibernate:
+       ## ddl-auto: update
+    properties:
+      hibernate:
+        ##default_schema: liquibase_schema
+  liquibase:
+    default-schema: liquibase_schema

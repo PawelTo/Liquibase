@@ -24,7 +24,7 @@
     </changeSet>
 
     <changeSet author="Pawel Toporowicz" id="2">
-        <insert dbms="h2, oracle"
+        <insert dbms="h2, oracle, postgresql"
                 tableName="Student">
             <column name="name" type="varchar(255)" value="nazwa"/>
             <column name="passport_Number" type="varchar(255)" value="paszport"/>
