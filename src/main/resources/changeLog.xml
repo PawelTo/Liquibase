@@ -13,17 +13,18 @@
             <column name="name" type="varchar(255)"/>
             <column name="passport_Number" type="varchar(255)"/>
         </createTable>
-        <addAutoIncrement columnDataType="int"
-                          columnName="id"
-                          defaultOnNull="false"
-                          generationType="ALWAYS"
-                          incrementBy="1"
-                          schemaName="public"
-                          startWith="1"
-                          tableName="Student"/>
     </changeSet>
 
-    <changeSet author="Pawel Toporowicz" id="2">
+    <changeSet id="2" author="Paweł Toporowicz">
+        <createSequence cycle="true"
+                        incrementBy="1"
+                        maxValue="100000"
+                        minValue="1"
+                        sequenceName="student_seq"
+                        startValue="1"/>
+    </changeSet>
+
+    <changeSet author="Pawel Toporowicz" id="3">
         <insert dbms="h2, oracle, postgresql"
                 tableName="Student">
             <column name="name" type="varchar(255)" value="nazwa"/>
@@ -31,22 +32,22 @@
         </insert>
     </changeSet>
 
-    <changeSet author="Pawel Toporowicz" id="3">
-        <insert dbms="h2, oracle"
+    <changeSet author="Pawel Toporowicz" id="4">
+        <insert dbms="h2, oracle, postgres"
                 tableName="Student">
             <column name="id" type="int" value="121"/>
             <column name="name" type="varchar(255)" value="nazwa z nadpisaniem generowania autosekwencji"/>
             <column name="passport_Number" type="varchar(255)" value="paszport z nadpisaniem generowania autosekwencji"/>
         </insert>
     </changeSet>
-    <changeSet author="Pawel Toporowicz" id="4">
-        <insert dbms="h2, oracle"
+    <changeSet author="Pawel Toporowicz" id="5">
+        <insert dbms="h2, oracle, postgres"
                 tableName="Student">
             <column name="name" type="varchar(255)" value="nazwa z generowanym id"/>
             <column name="passport_Number" type="varchar(255)" value="paszport z generowanym id"/>
         </insert>
     </changeSet>
-    <changeSet author="Pawel Toporowicz" id="5">
+    <changeSet author="Pawel Toporowicz" id="6">
         <renameColumn columnDataType="varchar(255)"
                       newColumnName="passport_Serial_Number"
                       oldColumnName="passport_Number"

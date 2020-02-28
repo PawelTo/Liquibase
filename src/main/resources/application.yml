@@ -7,7 +7,7 @@ spring:
     url: jdbc:h2:file:D:/Workspaces/LiquiBase_h2File/h2
 
   profiles:
-    active: Pg_DB
+    active: Ora_DB
 
 info:
   app:
