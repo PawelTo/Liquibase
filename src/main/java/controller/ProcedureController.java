@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import procedureCaller.DBProcedureCaller;
 
+import java.util.Map;
+
 @RestController
 public class ProcedureController {
 
@@ -12,7 +14,7 @@ public class ProcedureController {
     private DBProcedureCaller dbProcedureCaller;
 
     @GetMapping("/insertRow")
-    public void insertRecords(){
-        dbProcedureCaller.insertRowsStoredProcedure();
+    public Map<String, Object> insertRecords(){
+        return dbProcedureCaller.insertRowsStoredProcedure();
     }
 }

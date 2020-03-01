@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Component
 public class DBProcedureCaller {
@@ -12,8 +13,8 @@ public class DBProcedureCaller {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void insertRowsStoredProcedure(){
+    public Map<String, Object> insertRowsStoredProcedure(){
         SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
-        simpleJdbcCall.withProcedureName("insertRecord").execute(5);
+        return simpleJdbcCall.withProcedureName("insertRecord").execute(5);
     }
 }
