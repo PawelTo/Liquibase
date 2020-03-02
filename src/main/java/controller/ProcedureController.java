@@ -23,4 +23,9 @@ public class ProcedureController {
     public BigDecimal findMax(){
         return dbProcedureCaller.findMaxByDbFunctionCall(3, 12);
     }
+
+    @GetMapping("/packageProcedure")
+    public void callPackageProcedure(){
+        dbProcedureCaller.callPackageProcedure();
+    }
 }

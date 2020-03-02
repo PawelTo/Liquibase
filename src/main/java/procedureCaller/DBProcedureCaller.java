@@ -30,4 +30,9 @@ public class DBProcedureCaller {
         System.out.println("wartość max:"+findMax);
         return findMax;
     }
+
+    public Map<String, Object> callPackageProcedure(){
+        SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
+        return simpleJdbcCall.withCatalogName("testPackage").withProcedureName("checked").execute();
+    }
 }
