@@ -1,8 +1,15 @@
 package controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import service.Student;
 import streamAPI.StaticTests;
+import streamAPI.StreamAPI;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.BiFunction;
 
 @RestController
 public class StaticStreamController {
@@ -25,7 +32,23 @@ public class StaticStreamController {
         System.out.println("Wartość statyczna z niestatycznej metody: "+st.getPrivateStaticStringByNonStatic());
     }
 
-    public void testStream(){
+    @GetMapping("/testStream")
+    public Map<String, String> testStream(){
+        StreamAPI sa = new StreamAPI();
+        return sa.checkStream();
+    }
 
+    @PostMapping("/PosttestLambda")
+    public int testBiFunction(Student student){
+        BiFunction<Integer,String, Integer> loger = (in,st) -> {
+            System.out.println("wywołuję moją metode logera in: "+in + " st: "+st);
+            return in+3;
+        };
+        return loger.apply(student.getId(), student.getPassportSerialNumber());
+    }
+
+    @GetMapping("/methodRef")
+    public String testMethodRef(Student student){
+        return new StreamAPI().testMethodReference(student);
     }
 }
