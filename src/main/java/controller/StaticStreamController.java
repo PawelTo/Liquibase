@@ -7,7 +7,6 @@ import service.Student;
 import streamAPI.StaticTests;
 import streamAPI.StreamAPI;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.function.BiFunction;
 
@@ -50,5 +49,15 @@ public class StaticStreamController {
     @GetMapping("/methodRef")
     public String testMethodRef(Student student){
         return new StreamAPI().testMethodReference(student);
+    }
+
+    @GetMapping("/changeStaticValue")
+    public void changeStatic(){
+        StaticTests st1 = new StaticTests();
+        System.out.println("Wartość przed zmianą: "+st1.publicStaticStringValue);
+
+        StaticTests.publicStaticStringValue = "zmieniona wartość";
+        StaticTests st2 = new StaticTests();
+        System.out.println("Wartość po zmianie: "+ st2.publicStaticStringValue);
     }
 }
