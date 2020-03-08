@@ -53,4 +53,24 @@
                       oldColumnName="passport_Number"
                       tableName="Student"/>
     </changeSet>
+    <changeSet author="Pawel Toporowicz" id="7">
+        <createTable tableName="LiquiBaseEntity">
+            <column name="str" type="varchar(255)"/>
+            <column name="integerColumn" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Pawel Toporowicz" id="8">
+        <insert dbms="h2, oracle, postgres"
+                tableName="LiquiBaseEntity">
+            <column name="str" type="varchar(255)" value="tabela zarządzana tylko przez liquibase 1"/>
+            <column name="integerColumn" type="int" value="2"/>
+        </insert>
+
+        <insert dbms="h2, oracle, postgres"
+                tableName="LiquiBaseEntity">
+            <column name="str" type="varchar(255)" value="tabela zarządzana tylko przez liquibase 2"/>
+            <column name="integerColumn" type="int" value="3"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
