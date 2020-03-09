@@ -22,7 +22,15 @@ public class BasicEntityService {
     }
 
     public BasicEntity addJPA(){
-        BasicEntity basicEntity = new BasicEntity("strCol",2,new Integer(5),5L,2,true);
+        BasicEntity basicEntity = new BasicEntity("strJPA",2,new Integer(5),5L,2,true);
         return basicEntityRepository.save(basicEntity);
     }
+
+    public List<BasicEntity> getAllJDBC(){
+        return basicEntityJDBC.getAll();
+    }
+
+   public int insertJdbc(){
+        return basicEntityJDBC.addRecord("BasicEntityJDBCDataType","strJDBC",3,5,2,1,false);
+   }
 }
