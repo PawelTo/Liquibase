@@ -21,8 +21,8 @@ public class BasicEntityService {
         return basicEntityRepository.findAll();
     }
 
-    public BasicEntity addJPA(){
-        BasicEntity basicEntity = new BasicEntity("strJPA",2,new Integer(5),5L,2,true);
+    public BasicEntity addJPA(String str){
+        BasicEntity basicEntity = new BasicEntity("JPA_"+str,2,new Integer(5),5L,2,true);
         return basicEntityRepository.save(basicEntity);
     }
 
@@ -30,7 +30,7 @@ public class BasicEntityService {
         return basicEntityJDBC.getAll();
     }
 
-   public int insertJdbc(){
-        return basicEntityJDBC.addRecord("BasicEntityJDBCDataType","strJDBC",3,5,2,1,false);
+   public int insertJdbc(String str){
+        return basicEntityJDBC.addRecord("BasicEntity","JDBCDataType_"+str,3,5,2,1,false);
    }
 }

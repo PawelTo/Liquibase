@@ -31,8 +31,8 @@ public class JdbcJPAController {
     }
 
     @PostMapping("/addBasicEntityJPA")
-    public BasicEntity addBasicEntityJPA(){
-        return basicEntityService.addJPA();
+    public BasicEntity addBasicEntityJPA(String str){
+        return basicEntityService.addJPA(str);
     }
 
     @GetMapping("/getAllBasicEntityJdbc")
@@ -41,7 +41,7 @@ public class JdbcJPAController {
     }
 
     @PostMapping("/addBasicEntityJdbc")
-    public int addBasicEntityJdbc(){
-        return basicEntityService.insertJdbc();
+    public int addBasicEntityJdbc(String str){
+        return basicEntityService.insertJdbc(str);
     }
 }
