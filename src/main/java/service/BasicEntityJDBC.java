@@ -24,12 +24,12 @@ public class BasicEntityJDBC {
     public List<BasicEntity> getAll(){
         return jdbcTemplate.query("select * from Basic_Entity",
                 (rs, rowNum)-> new BasicEntity(
-                        rs.getString("stringColumn"),
-                        rs.getInt("intColumn"),
-                        rs.getInt("integerColumn"),
-                        rs.getLong("longColumn"),
-                        rs.getDouble("doubleColumn"),
-                        rs.getBoolean("booleanColumn")
+                        rs.getString("string_Column"),
+                        rs.getInt("int_Column"),
+                        rs.getInt("integer_Column"),
+                        rs.getLong("long_Column"),
+                        rs.getDouble("double_Column"),
+                        rs.getBoolean("boolean_Column")
                 ));
     }
 }
