@@ -20,6 +20,12 @@ public class JdbcJPAController {
     @Autowired
     private ExtendentEntityService extendentEntityService;
 
+    @Autowired
+    private Extend2EntityRepository extend2EntityRepository;
+
+    @Autowired
+    private ExtendetLvl2EntityRepository extendetLvl2EntityRepository;
+
     @GetMapping("/getAllLiquibaseJdbc")
     public List<LiquiBaseEntity> getAllLiquiBaseJdbc(){
         return liquiBaseEntityJDBC.getAllRecords();
@@ -60,4 +66,30 @@ public class JdbcJPAController {
 
     @PostMapping("/addExtendedJdbc")
     public int addExtendedJdbc(String str){ return extendentEntityService.addExtendentJdbc(str);}
+
+    @PostMapping("/addExtendetLvl2Entity")
+    public ExtendetLvl2Entity addExtendetLvl2Entity(String str){
+        ExtendetLvl2Entity extendetLvl2Entity = new ExtendetLvl2Entity();
+        extendetLvl2Entity.setOnlyExtendetLvl2("Lvl2_JPA_"+str);
+        extendetLvl2Entity.setStringColumn("Lvl2_JPA_"+str);
+        return extendetLvl2EntityRepository.save(extendetLvl2Entity);
+    }
+
+    @GetMapping("/getExtendetLvl2Entity")
+    public List<ExtendetLvl2Entity> getExtendetLvl2Entity(){
+        return extendetLvl2EntityRepository.findAll();
+    }
+
+    @PostMapping("/addExtend2Entity")
+    public Extend2Entity addExtend2Entity(String str){
+        Extend2Entity extend2Entity = new Extend2Entity();
+        extend2Entity.setExtend2EntityOnly("extend2_JPA_"+str);
+        extend2Entity.setStringColumn("2exted_JPA_"+str);
+        return extend2EntityRepository.save(extend2Entity);
+    }
+
+    @GetMapping("/getExtend2Entity")
+    public List<Extend2Entity> getExtend2Entity(){
+        return extend2EntityRepository.findAll();
+    }
 }
