@@ -13,9 +13,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"controller", "service","swaggerNew","cache", "scheduler", "procedureCaller"})
-@EnableJpaRepositories(basePackages = {"controller", "service"})
-@EntityScan(basePackages = {"controller", "service"})
+@ComponentScan(basePackages = {"controller", "service","swaggerNew","cache", "scheduler", "procedureCaller","extendsEntity"})
+@EnableJpaRepositories(basePackages = {"controller", "service","extendsEntity"})
+@EntityScan(basePackages = {"controller", "service","extendsEntity"})
 @EnableSwagger2
 @EnableCaching
 @EnableScheduling

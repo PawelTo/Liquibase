@@ -23,6 +23,8 @@ public class BasicEntity {
         this.booleanColumn = booleanColumn;
     }
 
+    public BasicEntity() {}
+
     public String getStringColumn() {
         return stringColumn;
     }
