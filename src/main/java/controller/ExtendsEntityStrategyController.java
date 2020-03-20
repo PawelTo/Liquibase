@@ -45,4 +45,14 @@ public class ExtendsEntityStrategyController {
     public ExtJoinedTable addExtJoinedRepo(String name, int id){
         return extendsService.addExJoinedRepo(name, id);
     }
+
+    @PostMapping("/addBaseTabPerEntRepo")
+    public BaseTabPerEnt addBaseTabPerEntRepo(String name, int id){
+        return extendsService.addBaseTabPerEntRepo(name,id);
+    }
+
+    @PostMapping("/addExTabPerEntRepo")
+    public ExTabPerEnt addExTabPerEntRepo(String name, int id){
+        return extendsService.addExTabPerEntRepo(name, id);
+    }
 }

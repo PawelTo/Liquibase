@@ -21,6 +21,9 @@ public class ExtendsService {
     @Autowired
     private BaseJoinedRepo baseJoinedRepo;
 
+    @Autowired
+    private BaseTabPerEntRepo baseTabPerEntRepo;
+
     public MapSubSubEntity addMapSubSubJpa(String str, int id){
         //MapSubSubEntity mapSubSubEntity = new MapSubSubEntity(1+id, "JPA_MapSubSub",str);
         MapSubSubEntity mapSubSubEntity = new MapSubSubEntity();
@@ -72,5 +75,20 @@ public class ExtendsService {
         extJoinedTable.setName("addBaseJoinedRepo_"+name);
         extJoinedTable.setExtJoinedTable("addBaseJoinedRepo_ExtJoin_"+name);
         return baseJoinedRepo.save(extJoinedTable);
+    }
+
+    public BaseTabPerEnt addBaseTabPerEntRepo(String name, int id){
+        BaseTabPerEnt baseTabPerEnt = new BaseTabPerEnt();
+        baseTabPerEnt.setId(id);
+        baseTabPerEnt.setName("addBaseTabPerEntRepo_"+name);
+        return baseTabPerEntRepo.save(baseTabPerEnt);
+    }
+
+    public ExTabPerEnt addExTabPerEntRepo(String name, int id){
+        ExTabPerEnt exTabPerEnt = new ExTabPerEnt();
+        exTabPerEnt.setId(id);
+        exTabPerEnt.setName("addExTabPerEntRepo_"+name);
+        exTabPerEnt.setExTabPerEnt("addExTabPerEntRepo_"+name);
+        return baseTabPerEntRepo.save(exTabPerEnt);
     }
 }
