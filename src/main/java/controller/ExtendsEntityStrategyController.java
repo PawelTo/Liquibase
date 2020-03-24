@@ -55,4 +55,9 @@ public class ExtendsEntityStrategyController {
     public ExTabPerEnt addExTabPerEntRepo(String name, int id){
         return extendsService.addExTabPerEntRepo(name, id);
     }
+
+    @PostMapping("/addMapSubSub2")
+    public MapSubSub2Entity addMapSubSub2(String name, int id){
+        return extendsService.addMapSubSub2(name, id);
+    }
 }

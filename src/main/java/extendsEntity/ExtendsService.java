@@ -91,4 +91,12 @@ public class ExtendsService {
         exTabPerEnt.setExTabPerEnt("addExTabPerEntRepo_"+name);
         return baseTabPerEntRepo.save(exTabPerEnt);
     }
+
+    public MapSubSub2Entity addMapSubSub2(String name, int id){
+        MapSubSub2Entity mapSubSub2Entity = new MapSubSub2Entity();
+        mapSubSub2Entity.setId(id);
+        mapSubSub2Entity.setName("addMapSubSub2_"+name);
+        mapSubSub2Entity.setMapSub2("addMapSubSub2_Sub2_"+name);
+        return mapSubRepo.save(mapSubSub2Entity);
+    }
 }
