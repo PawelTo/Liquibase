@@ -45,4 +45,13 @@ public class Student {
     public void setPassportSerialNumber(String passportSerialNumber) {
         this.passportSerialNumber = passportSerialNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", passportSerialNumber='" + passportSerialNumber + '\'' +
+                '}';
+    }
 }
