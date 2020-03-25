@@ -9,10 +9,10 @@ spring:
 
   jpa:
     hibernate:
-      #ddl-auto - enable to generate database strucutre via hibernate
+      #ddl-auto - enable to generate database structure via hibernate
         #ddl-auto: update
     properties:
       hibernate:
         #default_schema: liquibase_schema
   liquibase:
-    #default-schema: liquibase_schema
+    default-schema: liquibaseApp
