@@ -13,6 +13,7 @@ spring:
         #ddl-auto: update
     properties:
       hibernate:
-        #default_schema: liquibaseapp -it works only for JPA, not for JDBC
+        # it works only for JPA, not for JDBC
+        #default_schema: liquibaseapp
   liquibase:
     #default-schema: liquibaseApp
