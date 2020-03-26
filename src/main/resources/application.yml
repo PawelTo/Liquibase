@@ -1,4 +1,4 @@
-##there is also other possible method to store all configuration in single file, or divied it to separate files
+##there is also other possible method to store all configuration in single file, or divided it to separate files
 spring:
   liquibase:
     change-log: classpath:changeLog.xml
@@ -7,7 +7,7 @@ spring:
     url: jdbc:h2:file:D:/Workspaces/LiquiBase_h2File/h2
 
   profiles:
-    active: Ora_DB
+    active: dev
 
   jpa:
     properties:
