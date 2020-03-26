@@ -16,13 +16,13 @@ public class BasicEntityJDBC {
     @Value("${spring.jpa.properties.hibernate.default_schema:}")
     private String schemaName;
 
-    @Value("${spring.datasource.username}")
+    @Value("${spring.datasource.username:}")
     private String userName;
 
     @PostConstruct
     private void setSchemaName(){
         System.out.println("Schema: "+schemaName+" user: "+userName);
-        schemaName = schemaName.isEmpty() ? userName:schemaName;
+        schemaName = !schemaName.isEmpty() ? schemaName + "." : (userName.isEmpty() ? "" : userName + ".");
     }
     @Autowired
     public BasicEntityJDBC(JdbcTemplate jdbcTemplate) {
@@ -35,7 +35,7 @@ public class BasicEntityJDBC {
     }
 
     public List<BasicEntity> getAll(){
-        return jdbcTemplate.query("select * from "+schemaName+".Basic_Entity",
+        return jdbcTemplate.query("select * from "+schemaName+"Basic_Entity",
                 (rs, rowNum)-> new BasicEntity(
                         rs.getString("string_Column"),
                         rs.getInt("int_Column"),
