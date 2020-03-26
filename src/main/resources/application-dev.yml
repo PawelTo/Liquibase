@@ -1,2 +1,8 @@
 controllerReturnedProfile: wartoscZPliku dev-yaml
 controllerReturned: CR_nadpisany_DEV
+
+spring:
+  jpa:
+    hibernate:
+    #ddl-auto - enable to generate database structure via hibernate
+      ddl-auto: update
