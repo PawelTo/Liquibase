@@ -33,9 +33,9 @@ public class ValidController {
 
     @GetMapping("/ValidOb")
     public String ValidOb(){
-        ValidOb validOb = new ValidOb(3,"nie null",-3);
-        ValidOb validOb1 = new ValidOb(3,null,3);
-        ValidOb validOb2 = new ValidOb(3,"poprawny",3);
+        ValidOb validOb = new ValidOb(3,"nie null",-3,2);
+        ValidOb validOb1 = new ValidOb(3,null,3,-10);
+        ValidOb validOb2 = new ValidOb(3,"poprawny",3,2);
         List<ValidOb> validObs = Arrays.asList(validOb, validOb1, validOb2);
         Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 

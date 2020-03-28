@@ -2,6 +2,8 @@ package validation;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
@@ -14,13 +16,19 @@ public class ValidOb {
     @NotNull
     private String notNull;
 
-    @Positive
+    @Positive(groups = FirstStepValidation.class)
     private double positive;
 
-    public ValidOb(int id, @NotNull String notNull, @Positive double positive) {
+    @Max(value = 5, groups = SecondStepValidation.class)
+    @Min(value = -5, groups = {FirstStepValidation.class, SecondStepValidation.class})
+    private int range;
+
+    public ValidOb(int id, @NotNull String notNull, @Positive(groups = FirstStepValidation.class) double positive,
+                   @Max(value = 5, groups = SecondStepValidation.class) @Min(value = -5, groups = {FirstStepValidation.class, SecondStepValidation.class}) int range) {
         this.id = id;
         this.notNull = notNull;
         this.positive = positive;
+        this.range = range;
     }
 
     public ValidOb() {
@@ -48,5 +56,23 @@ public class ValidOb {
 
     public void setPositive(double positive) {
         this.positive = positive;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    @Override
+    public String toString() {
+        return "ValidOb{" +
+                "id=" + id +
+                ", notNull='" + notNull + '\'' +
+                ", positive=" + positive +
+                ", range=" + range +
+                '}';
     }
 }
