@@ -6,6 +6,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.Objects;
 
 @Entity
 public class ValidOb {
@@ -74,5 +75,21 @@ public class ValidOb {
                 ", positive=" + positive +
                 ", range=" + range +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ValidOb validOb = (ValidOb) o;
+        return id == validOb.id &&
+                Double.compare(validOb.positive, positive) == 0 &&
+                range == validOb.range &&
+                notNull.equals(validOb.notNull);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, notNull, positive, range);
     }
 }

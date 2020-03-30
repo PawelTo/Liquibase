@@ -4,9 +4,7 @@ import app.validation.FirstStepValidation;
 import app.validation.ValidOb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import app.validation.SecondStepValidation;
 import app.validation.ValidService;
 
@@ -24,6 +22,13 @@ public class ValidatedController {
     public ValidOb addValidated(@Validated ValidOb valid){
         //Will throw only default exception without group
         System.out.println("wykonałem metodę validated na obiekcie: "+valid);
+        return validService.addEntityValid(valid);
+    }
+
+    @PostMapping("/addValidatedBody")
+    public ValidOb addValidatedBody(@RequestBody ValidOb valid){
+        //Will throw only default exception without group
+        System.out.println("wykonałem metodę validated Body na obiekcie: "+valid);
         return validService.addEntityValid(valid);
     }
 
