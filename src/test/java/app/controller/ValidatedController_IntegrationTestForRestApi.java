@@ -98,4 +98,31 @@ class ValidatedController_IntegrationTestForRestApi {
         ;
         Mockito.verify(mockBeanValidService, Mockito.times(1)).addEntityValid(validOb);
     }
+
+    @Test
+    public void addFirstLvlValidated_thenValidationError() throws Exception {
+        //given
+        int id =33;
+        String notNull = "testObject";
+        double positive =-5;
+        int range =5;
+        ValidOb validOb = new ValidOb(id,notNull,positive,range);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(validOb);
+
+        //when
+        Mockito.when(mockBeanValidService.addEntityValid(validOb)).thenReturn(validOb);
+
+        mockMvc.perform(post("/addFirstLvlValidated")
+                .contentType(MediaType.APPLICATION_JSON)
+                .param("id",String.valueOf(id))
+                .param("notNull",notNull)
+                .param("positive", String.valueOf(positive))
+                .param("range",String.valueOf(range))
+        )
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+        ;
+        Mockito.verify(mockBeanValidService, Mockito.times(0)).addEntityValid(validOb);
+    }
 }
