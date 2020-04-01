@@ -21,7 +21,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Class for integration test of restAPI controller - mocked serviced layer
  */
-@RunWith(SpringRunner.class)
 @WebMvcTest(ValidatedController.class) //annotation to load only specified controller, not whole spring context
 class ValidatedController_IntegrationTestForRestApi {
 
