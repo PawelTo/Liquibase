@@ -10,6 +10,7 @@ import app.validation.ValidService;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @RestController
 @Validated
@@ -63,5 +64,15 @@ public class ValidatedController {
         String x = "nie wykonuje validacje na poziomie metody dla wartości nazwa: " + nazwa + ", id: " + id;
         System.out.println(x);
         return x;
+    }
+
+    @GetMapping("/connectCurrentPrevNextEntity")
+    public List<ValidOb> connectCurrentPrevNextEntity(int id){
+        return validService.connectCurrentPrevNextEntity(id);
+    }
+
+    @GetMapping("/getfindAllByOrderById")
+    public List<ValidOb> getAllValidOb(){
+        return validService.findAllByOrderById();
     }
 }
