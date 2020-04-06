@@ -27,7 +27,7 @@ management:
 
 
 controllerReturned: wartoscZPliku_yaml czesc prod
-
+controllReturnedOnlyMainProfile: wartość tylko w app.yml czesc 1
 ---
 spring:
   liquibase:
@@ -38,4 +38,5 @@ spring:
 
   profiles:
     active: dev
-##controllerReturned: wartoscZPliku_yaml czesc dev
+#controllerReturned: wartoscZPliku_yaml czesc dev
+controllReturnedOnlyMainProfile: wartość tylko w app.yml czesc 2

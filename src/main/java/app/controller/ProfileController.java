@@ -13,6 +13,9 @@ public class ProfileController {
     @Value("${controllerReturnedProfile:wartoscDomyslnaProfile}")
     private String controllerReturnedProfile;
 
+    @Value("${controllReturnedOnlyMainProfile:wartoscDomyślna}")
+    private String controllReturnedOnlyMainProfile;
+
     public ProfileController() {
         this.controllerReturn = controllerReturn;
     }
@@ -21,5 +24,11 @@ public class ProfileController {
     public String printValue(){
         System.out.println("wartość: "+controllerReturn+ " profile: "+controllerReturnedProfile);
         return controllerReturn+" _ "+controllerReturnedProfile;
+    }
+
+    @GetMapping("/printOnlyMain")
+    public String printMainValue(){
+        System.out.println("Wartość tylko w pliku application.yml: "+controllReturnedOnlyMainProfile);
+        return controllReturnedOnlyMainProfile;
     }
 }
