@@ -19,6 +19,11 @@ public class Student {
         this.passportSerialNumber = passportSerialNumber;
     }
 
+    public Student(String name, String passportSerialNumber) {
+        this.name = name;
+        this.passportSerialNumber = passportSerialNumber;
+    }
+
     public Student() {
     }
 
