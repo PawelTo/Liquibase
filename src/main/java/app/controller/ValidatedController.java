@@ -40,6 +40,11 @@ public class ValidatedController {
         return validService.addEntityValid(valid);
     }
 
+    @GetMapping("/allValidOb")
+    public List<ValidOb> allValidOb(){
+        return validService.findAllByOrderById();
+    }
+
     @PostMapping("/addFirstLvlValidated")
     public ValidOb addFirstLvlValidated(@Validated(FirstStepValidation.class) ValidOb valid){
         System.out.println("wykonałem metodę First level validated na obiekcie: "+valid);
