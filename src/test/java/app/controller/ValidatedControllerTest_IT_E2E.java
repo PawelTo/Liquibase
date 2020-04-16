@@ -48,8 +48,7 @@ class ValidatedControllerTest_IT_E2E {
                 .param("range", String.valueOf(RANGE)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json(json))
-        ;
+                .andExpect(content().json(json));
     }
 
     @Test
