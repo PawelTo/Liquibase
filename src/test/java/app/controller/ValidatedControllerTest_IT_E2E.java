@@ -54,6 +54,7 @@ class ValidatedControllerTest_IT_E2E {
     @Test
     void test_allValidOb() throws Exception {
         mockMvc.perform(get("/allValidOb"))
-                .andDo(print());
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }

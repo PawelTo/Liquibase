@@ -68,8 +68,7 @@ class ValidatedController_IntegrationTestForRestApi {
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json(json))
-        ;
+                .andExpect(content().json(json));
         Mockito.verify(mockBeanValidService, Mockito.times(1)).addEntityValid(validOb);
     }
 
